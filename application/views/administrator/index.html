@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html ng-app="mainApp" initialize-blog source="panel">
+<head lang="en">
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <base href="http://matrik.com"> -->
+
+    <!-- Angular Base -->
+	<title ng-bind="'Laboratorium &mdash; ' + title"></title>
+
+	<!-- Bootstrap -->
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Google Material -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="//cdn.laboratorium.xyz/plugins/swal/sweetalert.css">
+
+	<script type="text/javascript" src="//cdn.laboratorium.xyz/plugins/jquery/dist/jquery.min.js"></script>
+	<!-- <script type="text/javascript" src="components/assets/client/js/library.helper.js"></script> -->
+
+	<!-- Bootstrap -->
+	<script src="//cdn.laboratorium.xyz/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+
+	<!-- Swetalert -->
+    <script type="text/javascript" src="//cdn.laboratorium.xyz/plugins/swal/sweetalert.min.js"></script>
+
+</head>
+<body>
+
+	<!-- No header, and the drawer stays open on larger screens (fixed drawer). -->
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+		<div class="mdl-layout__drawer">
+			<span class="mdl-layout-title">Title</span>
+			<nav class="mdl-navigation">
+				<a class="mdl-navigation__link" href="">Link</a>
+				<a class="mdl-navigation__link" href="">Link</a>
+				<a class="mdl-navigation__link" href="">Link</a>
+				<a class="mdl-navigation__link" href="#/logout">Logout</a>
+			</nav>
+		</div>
+		<main class="mdl-layout__content">
+			<div class="page-content" style="padding-left: 10px;">
+				<ng-view></ng-view>
+			</div>
+		</main>
+	</div>
+
+	<!-- <div ng-include="{{default_template}}"></div>	 -->
+	<div id="snackbarTemp" class="mdl-snackbar mdl-js-snackbar" style=""> 
+		<div class="mdl-spinner mdl-js-spinner is-active" style="display:none; margin-top: 9px;margin-left: 7px;"></div>
+		<div class="mdl-snackbar__text"></div> 
+		<button type="button" class="mdl-snackbar__action"></button> 
+	</div>
+
+	<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase-messaging.js"></script>
+
+	<script type="text/javascript">
+		var config = {
+            apiKey: "AIzaSyArcK4A57cCTKS5p7kTjM3qyqE-87IOAws",
+            authDomain: "scheduler-dd497.firebaseapp.com",
+            databaseURL: "https://scheduler-dd497.firebaseio.com",
+            projectId: "scheduler-dd497",
+            storageBucket: "scheduler-dd497.appspot.com",
+            messagingSenderId: "541968988241"
+        };
+        window.fire = firebase.initializeApp(config);
+	</script>
+
+	<script type="text/javascript" src="//cdn.laboratorium.xyz/plugins/angular/angular.min.js"></script>
+	<script type="text/javascript" src="//cdn.laboratorium.xyz/plugins/angular-route/angular-route.min.js"></script>
+		
+	<script type="text/javascript" src="/assets/www/angular/Modules/main.js?1231"></script>
+	<script type="text/javascript" src="/assets/www/angular/Routing/main.js?1231"></script>
+	<script type="text/javascript" src="/assets/www/angular/Controllers/main.js?1231"></script>
+	
+	<script type="text/javascript" src="/assets/www/angular/Services/main.js?1231"></script>
+	<script type="text/javascript" src="/assets/www/angular/Directive/main.js?1231"></script>
+	<script type="text/javascript" src="/assets/www/angular/Factory/main.js?1231"></script>
+
+
+	
+	<!--  Checkbox, Radio & Switch Plugins -->
+	<!-- <script src="assets/assets/js/uplabs.bootstrap-checkbox-radio-switch.js"></script> -->
+
+    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+	<!-- <script src="components/assets/client/js/uplabs.light-bootstrap-dashboard.js?v=2"></script> -->
+</body>
+</html>

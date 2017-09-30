@@ -2,8 +2,13 @@
 var Routes = require(global.SYSTEM_PATH('Routing_listener'))
 
 console.log('Listening... OK')
+
+
 global.io.on('connection', function(socket) {
     var onevent = socket.onevent;
+
+    // JOIN ROOM
+    socket.join(socket.handshake.query.cluster)
 
     socket.onevent = function (packet, callback) {
         var args = packet.data || [];
@@ -11,6 +16,7 @@ global.io.on('connection', function(socket) {
         packet.data = ["*"].concat(args);
         onevent.call(this, packet, callback);      // additional call to catch-all
     };
+
 
    socket.on('*', function(event, data, callback) {
         var nEvent = event.split('/');
@@ -25,18 +31,11 @@ global.io.on('connection', function(socket) {
             {
                 CTR[RTS.function](event, data, callback)
             }
-        }
-
-        data = data.data
-        if(data.type)
+        }else
         {
-            switch(data.type)
-            {
-                case "PEER":
-                console.log(event, data)
-                    socket.emit(event, data.data);
-                    break;
-            }
+            var room = data._props.apiKey;
+            var event = room+'_'+event+'_'+data.target
+            io.to(room).emit(event, data.data);
         }
 
     })
