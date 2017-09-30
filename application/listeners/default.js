@@ -33,6 +33,7 @@ global.io.on('connection', function(socket) {
             switch(data.type)
             {
                 case "PEER":
+                console.log(event, data)
                     socket.emit(event, data.data);
                     break;
             }
