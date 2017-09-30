@@ -1,0 +1,25 @@
+{
+  "name": "remote",
+  "version": "1.0.0",
+  "description": "Peer 2 Peer Remote",
+  "main": "index.js",
+  "dependencies": {
+    "cron": "^1.3.0",
+    "deferred": "^0.7.8",
+    "express": "^4.15.4",
+    "firebase-tools": "^3.12.0",
+    "mysql": "^2.14.1",
+    "socket.io": "^2.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.heroku.com/p2perr.git"
+  },
+  "author": "Dhoni P Saputra",
+  "license": "ISC"
+}
