@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tester</title>
+	<script type="text/javascript" src="//code.jquery.com/jquery.min.js"></script>
+	<script type="text/javascript" src="http://cdn.laboratorium.xyz/plugins/socketio/socketio.js"></script>
+	<script type="text/javascript" src="http://cdn.laboratorium.xyz/plugins/socketio/akar.socketio.js"></script>
+	<script type="text/javascript" src="http://cdn.laboratorium.xyz/plugins/ai.js/v2.1/Remote.js"></script>
+</head>
+<body>
+	<form>
+		<input type="text" name="dl">
+		<button type="button" onclick="submit_form()">Submit</button>
+	</form>
+
+	<script type="text/javascript">
+		function submit_form(e)
+		{
+			let formdata = $('form').serializeArray();
+			$.post('http://localhost:3000/project/test?data=1', formdata)
+		}
+	</script>
+</body>
+</html>

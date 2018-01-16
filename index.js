@@ -55,5 +55,7 @@ global.APPPATH 	= global.SELFDIR+application_folder+'/';
 
 global.PORT 	= 3000;
 
+global.$_REQUEST = {};
+
 require(global.BASEPATH+'core/Akar.js')
 

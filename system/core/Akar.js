@@ -13,13 +13,15 @@ global.app.use("/assets",global.express.static('assets'));
 
 global.RTR = global.load_class('Router', global.BASEPATH+'core');
 var RTR = global.RTR;
-global.app.get('*', function(req, res){
-	var event = req.originalUrl;
-	event = event.split('/');
-	event = event.filter(function(res){return res != ''})
-	event = event.join('/');
-	RTR.set_routing(event)
-    
+
+function routing(req, res)
+{
+
+    var event = req.params[0];
+    event = event.split('/');
+    event = event.filter(function(res){return res != ''})
+    event = event.join('/');
+    RTR.set_routing(event)
     
     var CTR = global.load_class(RTR.class, global.APPLICATION_PATH('controllers'));
     if(CTR)
@@ -29,8 +31,21 @@ global.app.get('*', function(req, res){
         // var CTR = global.load_controller(RTR.class)
         if(typeof CTR[RTR.function] == 'function')
         {
+            // console.log(RTR.function)
             CTR[RTR.function](event, req, res, RTR._routing_params)
         }
     }
+}
+app.post('*', function(req, res) {
+    $_REQUEST['GET'] = req.query;
+    $_REQUEST['POST'] = req.body;
+    routing(req,res)
+});
+
+global.app.get('*', function(req, res){
+    $_REQUEST['GET'] = req.query;
+    $_REQUEST['POST'] = req.body;
+    routing(req,res)
+    
 })
 

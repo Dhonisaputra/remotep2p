@@ -1,5 +1,5 @@
 
-var Routes = require(global.SYSTEM_PATH('Routing_listener'))
+var Routes = require(global.SYSTEM_PATH('core/Routing_listener'))
 
 console.log('Listening... OK')
 
@@ -34,7 +34,7 @@ global.io.on('connection', function(socket) {
         }else
         {
             var room = data._props.apiKey;
-            var event = room+'_'+event+'_'+data.target
+            var event = room+'_'+event
             io.to(room).emit(event, data.data);
         }
 
