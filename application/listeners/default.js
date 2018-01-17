@@ -35,7 +35,9 @@ global.io.on('connection', function(socket) {
         {
             var room = data._props.apiKey;
             var event = room+'_'+event
-            io.to(room).emit(event, data.data);
+            io.to(room).emit(event, data.data, function(){
+                callback({sent:true})
+            });
         }
 
     })
