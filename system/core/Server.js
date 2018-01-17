@@ -14,10 +14,10 @@ global.io 	= require('socket.io')(http);
 global.io.use(global.p2p)*/
 
 // connect server
-let port = process.env.PORT || global.PORT;
+let port = process.env.PORT;
 http
-.listen(port, function() {
+.listen(function() {
 	global.app.use('/assets',global.express.static('assets'))
 
-    console.log('server node running on port '+port.toString().green);
+    console.log('server node running on port ');
 });
