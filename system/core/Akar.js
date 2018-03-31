@@ -24,8 +24,8 @@ function routing(req, res)
     event = event.join('/');
     RTR.set_routing(event)
     
-    console.log(RTR.class)
-    var CTR = global.load_class(RTR.class, global.APPLICATION_PATH('controllers'));
+    let classname = RTR.class.charAt(0).toUpperCase() + RTR.class.slice(1);
+    var CTR = global.load_class(classname, global.APPLICATION_PATH('controllers'));
     if(CTR)
     {
         // console.log(RTR._functionname, RTR._classname)
