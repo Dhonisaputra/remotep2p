@@ -30,6 +30,7 @@ function routing(req, res)
         // console.log(RTR._functionname, RTR._classname)
 
         // var CTR = global.load_controller(RTR.class)
+        console.log(RTR.function)
         if(typeof CTR[RTR.function] == 'function')
         {
             // console.log(RTR.function)
