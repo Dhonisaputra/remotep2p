@@ -33,7 +33,11 @@ global.io.on('connection', function(socket) {
             }
         }else
         {
-            callback({sent:true})
+            if(typeof callback == 'function')
+            {
+                callback({sent:true})
+            }
+            console.log(event)
             var room = data._props.apiKey;
             var event = room+'_'+event
             io.to(room).emit(event, data.data);
