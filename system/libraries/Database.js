@@ -21,6 +21,7 @@
 var mysql    	= require('mysql');
 var deferred	= require('deferred');
 var dbconfig 	= require( global.APPLICATION_PATH('config/database.js') )
+var app_config 	= require( global.APPLICATION_PATH('config/config.js') )
 
 var Database = function(config) 
 {
@@ -34,6 +35,10 @@ var Database = function(config)
 		return false;
 	}
 
+	if(!app_config.using_db)
+	{
+		return false;
+	}
 	this.db = mysql.createConnection({
 	  	host     : config.HOST,
 	  	user     : config.USERNAME,
@@ -45,7 +50,7 @@ var Database = function(config)
 			console.error('error connecting: ' + err.stack);
 			return;
 		}
-		console.log('Connecting to database')
+		console.log('Connected to '+config.DATABASE)
 	})
 	this._query_select = '*';
 	this._query_from = undefined;

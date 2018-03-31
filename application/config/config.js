@@ -3,7 +3,7 @@ var $config = {
 
 	'port' 		: 3000,
 
-	'using_db'	: false,
+	'using_db'	: true,
 }
 
 module.exports = $config;

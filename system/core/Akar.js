@@ -6,6 +6,7 @@ require('./Server.js');
 // load Common
 require('./Common.js')
 require(global.APPLICATION_PATH('listeners/default.js'))
+require(global.SYSTEM_PATH('libraries/Database.js'))
 // require('./static_routes.js')
 
 global.app.use("/modules",global.express.static('node_modules'));
@@ -39,6 +40,7 @@ function routing(req, res)
 app.post('*', function(req, res) {
     $_REQUEST['GET'] = req.query;
     $_REQUEST['POST'] = req.body;
+    console.log(req.body)
     routing(req,res)
 });
 
