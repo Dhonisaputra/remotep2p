@@ -1,4 +1,4 @@
-module.exports = class Welcome
+module.exports = class Remote
 {
 	index(event, req, res)
 	{
